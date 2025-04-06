@@ -21,6 +21,26 @@ Los tipos de ataques XSS mas comunes son:
 
 ## 2. Realizar varios ataques XSS
 
+Vamos a realizar diferentes pruebas en las que realizamos ataques de XSS a sitios inseguros:
+
+Comenzamos creando un fichero php en nuestro servicio de apache con un pequeño formulario, y sin realizar ningun tipo de validación ni sanitización de la entrada:
+
+![php1](./Imagenes/1.png)
+
+Este código muestra un formulario donde el usuario puede ingresar un comentario en un campo de texto. Cuando el usuario envía el formulario, el comentario ingresado se muestra en la pantalla con el mensaje "Comentario publicado: [comentario]".
+
+![php1](./Imagenes/2.png)
+
+Si en lugar de introducir un comentario introducimos código *Javascript*, al mostrarse en la página el comentario, el navegador va a interpretar ese código:
+
+Vamos a introducir el siguiente código:
+
+`<script>alert('XSS ejecutado!')</script>`
+
+El navegador lo interpreta y muestra una ventana emergente:
+
+![php1](./Imagenes/3.png)
+
 
 
 ## 3. Implementar modificaciones al código para mitigar los ataques XSS
