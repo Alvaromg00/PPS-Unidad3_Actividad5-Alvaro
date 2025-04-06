@@ -72,4 +72,23 @@ Va a mandar las cookies a nuestro fichero ***index.php***:
 
 En este apartado vamos a implementar modificaciones en el código php del formulario, que filtren y sanitizen la entrada del usuario, para evitar estos ataques de XSS:
 
+### filter_input() para filtrar caracteres:
 
+Creamos el documento [comment1.php](./Recursos/comment1.php)
+
+### htmlspecialchars() para sanitizar la entrada:
+
+Creamos el documento [comment2.php](./Recursos/comment2.php)
+
+### Validar la entrada:
+
+Creamos el documento [comment3.php](./Recursos/comment3.php)
+
+## Protección contra inyecciones HTML y JS (XSS)
+
+
+## Protección contra ataques CSRF
+
+
+## Formulario seguro
+ Creamos el documento [comment4.php](./Recursos/comment4.php) con todas las mitigaciones anteriores.
