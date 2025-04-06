@@ -2,9 +2,9 @@
 
 ## Objetivos
 
-> [1. Conocer las diferentes formas de ataques XSS]()
-> [2. Realizar varios ataques XSS]()
-> [3. Implementar modificaciones al código para mitigar los ataques XSS]()
+> [1. Conocer las diferentes formas de ataques XSS](#1-conocer-las-diferentes-formas-de-ataques-xss)  
+> [2. Realizar varios ataques XSS](#2-realizar-varios-ataques-xss)  
+> [3. Implementar modificaciones al código para mitigar los ataques XSS](#3-implementar-modificaciones-al-código-para-mitigar-los-ataques-xss)  
 
 -----
 
