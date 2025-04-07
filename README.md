@@ -70,25 +70,49 @@ Va a mandar las cookies a nuestro fichero ***index.php***:
 
 ## 3. Implementar modificaciones al código para mitigar los ataques XSS
 
-En este apartado vamos a implementar modificaciones en el código php del formulario, que filtren y sanitizen la entrada del usuario, para evitar estos ataques de XSS:
+En este apartado vamos a realizar modificaciones en el código php del formulario, que filtren y sanitizen la entrada del usuario, para evitar estos ataques de XSS:
 
 ### filter_input() para filtrar caracteres:
 
-Creamos el documento [comment1.php](./Recursos/comment1.php)
+Creamos el documento [comment1.php](./Recursos/comment1.php) con la función ***filter_input()*** que se encarga de filtrar caracteres problemáticos.
+
+![php1](./Imagenes/7.png)
 
 ### htmlspecialchars() para sanitizar la entrada:
 
-Creamos el documento [comment2.php](./Recursos/comment2.php)
+Creamos el documento [comment2.php](./Recursos/comment2.php) con la función ***htmlspecialchars()*** que se encargar de convertir los caracteres especiales en sus equivalentes entidades HTML. Para que aunque el usuario introduzca código, no sea ejecutado y sea interpretado como texto sin formato.
+
+![php1](./Imagenes/8.png)
+
+Hacemos la prueba de introducir código Javascript pero no lo ejecuta:
+
+![php1](./Imagenes/9.png)
 
 ### Validar la entrada:
 
-Creamos el documento [comment3.php](./Recursos/comment3.php)
+Creamos el documento [comment3.php](./Recursos/comment3.php), en el que agregamos una validación de entrada para que el usuario no pueda enviar comentarios vacíos o superiores a 500 caracteres.
+
+![php1](./Imagenes/10.png)
+
+Hacemos la prueba enviando un comentario vacío:
+
+![php1](./Imagenes/11.png)
 
 ## Protección contra inyecciones HTML y JS (XSS)
 
+Es posible reforzar la validación de entrada que hace *htmlspecialchars()* con *strip_tags()*, para que solo se pueda introducir texto sin etiquetas HTML.
 
-## Protección contra ataques CSRF
+Aunque con *strip_tags()* también es posible indicar que etiquetas si estan permitidas de la siguiente manera:
 
+`$comment = strip_tags($_POST['comment'], '<b><i>');`
 
 ## Formulario seguro
- Creamos el documento [comment4.php](./Recursos/comment4.php) con todas las mitigaciones anteriores.
+Creamos el documento [comment4.php](./Recursos/comment4.php) con todas las mitigaciones anteriores.
+
+![php1](./Imagenes/12.png)
+
+Las medidas de seguridad que contiene son:
+
++ Uso de *filter_string_polyfill()* para eliminar caracteres nulos y etiquetas html, también las comillas simples y dobles se reemplazan por sus equivalentes html.
++ Uso de *htmlspecialchars()* que convierte los caracteres especiales en entidades html.
++ Validación de la longitud de entrada y contenido.
